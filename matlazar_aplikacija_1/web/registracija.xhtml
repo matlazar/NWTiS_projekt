@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Registracija</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h:outputLabel value="Korisničko ime" />
+            <h:inputText value="#{registracija.korisnickoIme}" /><br/><br/>
+            <h:outputText value="Lozinka" />
+            <h:inputText value="#{registracija.lozinka}" /><br/>
+            <h:outputLabel value="Email" />
+            <h:inputText value="#{registracija.email}" /><br/><br/>
+            <h:commandButton value="Registracija" action="#{registracija.registracija()}" /><br/><br/>
+            <h:commandLink value="Prijava" action="#{registracija.prijava()}" /><br/>
+            <h:outputText value="#{registracija.poruka}" />
+        </h:form>
+    </body>
+</html>

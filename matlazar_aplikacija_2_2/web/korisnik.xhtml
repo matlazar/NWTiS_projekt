@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view locale="#{prijava.odabraniJezik}" >
+        <h:head>
+            <title>#{m.user_naslov}</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <h:outputLabel value="#{m.user_id}" />
+                <h:inputText id="id" value="#{user.idUser}" readonly="true" /><br/>
+                <h:outputLabel value="#{m.user_korIme}" />
+                <h:inputText id="ime" value="#{user.korIme}" /><br/>
+                <h:outputText value="#{m.user_lozinka}" />
+                <h:inputText id="lozinka" value="#{user.lozinka}" /><br/>
+                <h:outputLabel value="#{m.user_email}" />
+                <h:inputText id="mail" value="#{user.email}" />
+                <h:commandButton value="#{m.user_azuriraj}" action="#{user.azuriraj()}" >
+                    <f:ajax execute="ime lozinka mail" render="korisnici ime lozinka mail p1 p2" />
+                </h:commandButton><br/><br/>
+                <br/>
+                <h:outputLabel value="#{m.user_tablica}" /><br/>
+                <p:dataTable id = "korisnici" value="#{user.korisnici}" var="k" rendered="true" paginator="true"
+                             rows="#{user.retci}" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                             rowsPerPageTemplate="5,10,15">
+                    <p:column headerText="ID">
+                        <h:outputText value="#{k.id}"/>
+                    </p:column>
+                    <p:column headerText="Korisničko ime">
+                        <h:outputText value="#{k.korIme}"/>
+                    </p:column>
+                    <p:column headerText="Email">
+                        <h:outputText value="#{k.email}"/>
+                    </p:column>
+                </p:dataTable>
+                <h:outputText id="p1" value="#{user.poruka}" style="color: red;" />
+                <h:outputText id="p2" value="#{user.poruka_2}" style="color: greenyellow;" />
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+

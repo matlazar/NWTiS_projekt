@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{prijava.prijava()}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>pocetna.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{prijava.prijava()}</from-action>
+            <from-outcome>NOTOK</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{prijava.registracija()}</from-action>
+            <from-outcome>Registracija</from-outcome>
+            <to-view-id>registracija.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>registracija.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{registracija.registracija()}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>registracija.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{registracija.prijava()}</from-action>
+            <from-outcome>Prijava</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>pocetna.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pocetna.dnevnik()}</from-action>
+            <from-outcome>Dnevnik</from-outcome>
+            <to-view-id>dnevnik.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{pocetna.korisnik()}</from-action>
+            <from-outcome>Korisnik</from-outcome>
+            <to-view-id>korisnici.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{pocetna.uredaj()}</from-action>
+            <from-outcome>Uredaj</from-outcome>
+            <to-view-id>uredaji.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
+

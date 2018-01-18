@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{prijava.odabraniJezik}" >
+        <h:head>
+            <title>#{m.server_naslov}</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <h:outputLabel value="#{m.server_komanda}" />
+                <h:inputText id="komanda" value="#{serverMetode.komanda}" style="width:30%;"/><br/>
+                <h:commandButton value="#{m.server_gumb}" action="#{serverMetode.izvrsiKomandu()}">
+                    <f:ajax execute="komanda" render="p1" />
+                </h:commandButton><br/><br/>
+                <h:outputText id="p1" value="#{serverMetode.odgovor}" style="color: blue;" />
+            </h:form><br/>
+            USER matlazar; PASSWD matlazar; PAUSE;<br/>
+            USER matlazar; PASSWD matlazar; START;<br/>
+            USER matlazar; PASSWD matlazar; STOP;<br/>
+            USER matlazar; PASSWD matlazar; STAT;<br/>
+            USER matlazar; PASSWD jSY8i; IoT_Master START;<br/>
+            USER matlazar; PASSWD jSY8i; IoT_Master STOP;<br/>
+            USER matlazar; PASSWD jSY8i; IoT_Master WORK;<br/>
+            USER matlazar; PASSWD jSY8i; IoT_Master WAIT;<br/>
+            USER matlazar; PASSWD jSY8i; IoT_Master STATUS;<br/>
+        </h:body>
+    </f:view>
+</html>
+
